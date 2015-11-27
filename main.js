@@ -6,18 +6,21 @@ endNumber = prompt('Ведите на каком числе закончить (
 way = prompt('Путь к файлу', 'D://file.txt');
 
 
+//создание файла в который будет записываться генерация
+var fso, f1;
+	fso = new ActiveXObject("Scripting.FileSystemObject");
+	f1 = fso.CreateTextFile(way, true); //создание и название имени файла
+	
+
 for(var i = beginNumber; i < endNumber; i++) { //генерируем чилса
 	dir = u + i;
 	console.log(dir);
+	f1.WriteLine(dir);
 	}
 
 
-function create_file(dir){ //создание файла в который будет записываться генерация
-	var fso, f1;
-	fso = new ActiveXObject("Scripting.FileSystemObject");
-	f1 = fso.CreateTextFile(way, true); //создание и название имени файла
-	f1.WriteLine(dir);	// запись в файл
+
+	
 	
 	
 
-}
